@@ -53,3 +53,8 @@ button {
 .current-location:hover {
   background-color: #d8d8d8;
 }
+
+a {
+  position: absolute;
+  margin-top: 70px;
+}
