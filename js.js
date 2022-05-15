@@ -5,6 +5,7 @@ let temperatureElement = document.querySelector("#weather-temperature");
 let weatherDescription = document.querySelector("#weather-description");
 let cityHumidity = document.querySelector("#humidity");
 let cityWind = document.querySelector("#wind");
+let weatherIcon = document.querySelector("#weather-icon");
 
 function showCityTemperature(response) {
   console.log(response);
@@ -12,11 +13,13 @@ function showCityTemperature(response) {
   let humidity = response.data.main.humidity;
   let description = response.data.weather[0].main;
   let wind = Math.round(response.data.wind.speed);
+  let weather = response.data.weather[0].icon;
 
   temperatureElement.innerHTML = `${temp}°C`;
   weatherDescription.innerHTML = `${description}`;
   cityHumidity.innerHTML = `Humidity: ${humidity}%`;
   cityWind.innerHTML = `Wind: ${wind} km/h`;
+  weatherIcon.src = `http://openweathermap.org/img/wn/${weather}@2x.png`;
 }
 
 function showCity(event) {
@@ -40,6 +43,7 @@ function showTemperature(response) {
   let description = response.data.weather[0].main;
   let wind = Math.round(response.data.wind.speed);
   let cityName = response.data.name;
+  let weather = response.data.weather[0].icon;
   console.log(response.data.name);
 
   title.innerHTML = `${cityName}`;
@@ -47,6 +51,7 @@ function showTemperature(response) {
   weatherDescription.innerHTML = `${description}`;
   cityHumidity.innerHTML = `Humidity: ${humidity}%`;
   cityWind.innerHTML = `Wind: ${wind} km/h`;
+  weatherIcon.src = `http://openweathermap.org/img/wn/${weather}@2x.png`;
 }
 
 function showPosition(position) {

@@ -32,6 +32,10 @@ button {
   margin-top: 40px;
 }
 
+.little-flex {
+  display: flex;
+}
+
 #weather-description {
   margin: 10px 0;
 }
