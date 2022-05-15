@@ -58,7 +58,29 @@ button {
   background-color: #d8d8d8;
 }
 
-a {
+.source-link {
   position: absolute;
   margin-top: 70px;
+}
+
+h2 {
+  display: inline;
+}
+
+.inactive {
+  color: rgba(22, 22, 22, 0.861);
+  cursor: default;
+  text-decoration: none;
+}
+
+.inactive:hover {
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }

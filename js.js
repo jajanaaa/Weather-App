@@ -9,13 +9,16 @@ let weatherIcon = document.querySelector("#weather-icon");
 
 function showCityTemperature(response) {
   console.log(response);
-  let temp = Math.round(response.data.main.temp);
+
+  temperatureC = Math.round(response.data.main.temp);
+
+  //  let temp = Math.round(response.data.main.temp);
   let humidity = response.data.main.humidity;
   let description = response.data.weather[0].main;
   let wind = Math.round(response.data.wind.speed);
   let weather = response.data.weather[0].icon;
 
-  temperatureElement.innerHTML = `${temp}°C`;
+  temperatureElement.innerHTML = `${temperatureC}`;
   weatherDescription.innerHTML = `${description}`;
   cityHumidity.innerHTML = `Humidity: ${humidity}%`;
   cityWind.innerHTML = `Wind: ${wind} km/h`;
@@ -38,7 +41,7 @@ let button = document.querySelector("#current-location");
 
 function showTemperature(response) {
   console.log(response);
-  let temp = Math.round(response.data.main.temp);
+  temperatureC = Math.round(response.data.main.temp);
   let humidity = response.data.main.humidity;
   let description = response.data.weather[0].main;
   let wind = Math.round(response.data.wind.speed);
@@ -47,7 +50,7 @@ function showTemperature(response) {
   console.log(response.data.name);
 
   title.innerHTML = `${cityName}`;
-  temperatureElement.innerHTML = `${temp}°C`;
+  temperatureElement.innerHTML = `${temperatureC}`;
   weatherDescription.innerHTML = `${description}`;
   cityHumidity.innerHTML = `Humidity: ${humidity}%`;
   cityWind.innerHTML = `Wind: ${wind} km/h`;
@@ -71,3 +74,29 @@ function buttonShowPosition(event) {
 }
 
 button.addEventListener("click", buttonShowPosition);
+
+//
+
+linkC = document.querySelector("#link-c");
+linkF = document.querySelector("#link-f");
+
+let temperatureC = null;
+
+function showF(event) {
+  // multiply by 1.8 (or 9/5) and add 32.
+  event.preventDefault();
+  linkC.classList.remove("inactive");
+  linkF.classList.add("inactive");
+  tempF = Math.round(temperatureC * 1.8 + 32);
+  temperatureElement.innerHTML = `${tempF}`;
+}
+
+function showC(event) {
+  event.preventDefault();
+  linkC.classList.add("inactive");
+  linkF.classList.remove("inactive");
+  temperatureElement.innerHTML = temperatureC;
+}
+
+linkF.addEventListener("click", showF);
+linkC.addEventListener("click", showC);
