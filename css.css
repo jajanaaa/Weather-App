@@ -42,7 +42,7 @@ button {
 
 input,
 button {
-  padding: 7px;
+  padding: 8px 9px;
   border: none;
   border-radius: 2px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -50,17 +50,23 @@ button {
 
 button {
   margin-left: 5px;
+  background-color: #ec6e4c;
+  color: #ffffff;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-.submit:hover,
 .current-location:hover {
+  background-color: #e13b0c;
+}
+
+.submit:hover {
   background-color: #d8d8d8;
 }
 
 .source-link {
+  color: rgba(134, 53, 255, 0.851);
   position: absolute;
-  margin-top: 70px;
+  margin: 70px 0 0 -34px;
 }
 
 h2 {
@@ -79,8 +85,22 @@ h2 {
 
 a {
   text-decoration: none;
+  color: rgba(134, 53, 255, 0.851);
 }
 
 a:hover {
   text-decoration: underline;
+}
+
+#weather-icon {
+  margin-top: -10px;
+}
+
+#weather-temperature {
+  font-size: 50px;
+}
+
+.units {
+  position: absolute;
+  margin: 10px 0 0 5px;
 }

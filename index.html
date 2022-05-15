@@ -12,7 +12,12 @@
     <div class="container">
       <div class="container-inside">
         <form id="location-form">
-          <input class="city" type="text" placeholder="What is your city?" />
+          <input
+            class="city"
+            type="text"
+            placeholder="What is your city?"
+            required
+          />
           <input class="submit" type="submit" value="🔍" />
           <button id="current-location" class="current-location">
             Current location
@@ -21,7 +26,7 @@
         <div class="flex-main">
           <div class="first-col">
             <p id="date">Time</p>
-            <h1 id="title">City</h1>
+            <h1 id="title">Bangkok</h1>
           </div>
           <div class="little-flex">
             <div class="second-col">
@@ -32,18 +37,21 @@
               />
             </div>
             <div class="third-col">
-              <h2 id="weather-temperature">0</h2>
-              <h2>
+              <h2 id="weather-temperature">29</h2>
+              <h2 class="units">
                 <a id="link-c" class="inactive" href="#">°C</a> |
                 <a id="link-f" href="#">°F</a>
               </h2>
-              <h3 id="weather-description">Description</h3>
-              <p id="humidity">Humidity</p>
-              <p id="wind">Wind</p>
+              <h3 id="weather-description">Clouds</h3>
+              <p id="humidity">Humidity: 95%</p>
+              <p id="wind">Wind: 2 km/h</p>
             </div>
           </div>
         </div>
-        <a class="source-link" href="https://github.com/janamanzana/empty"
+        <a
+          class="source-link"
+          target="_blank"
+          href="https://github.com/janamanzana/ "
           >Open source Github link</a
         >
       </div>
