@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css.css" />
+    <title>Weather App</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="container-inside">
+        <form id="location-form">
+          <input class="city" type="text" placeholder="What is your city?" />
+          <input class="submit" type="submit" value="Search" />
+          <button id="current-location" class="current-location">
+            Current location
+          </button>
+        </form>
+        <div class="flex-main">
+          <div class="first-col">
+            <p id="date">Time</p>
+            <h1 id="title">City</h1>
+          </div>
+
+          <div class="second-col">
+            <h2 id="weather-temperature">0</h2>
+            <h3 id="weather-description">Description</h3>
+            <p id="humidity">Humidity</p>
+            <p id="wind">Wind</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/dates.js"></script>
+    <script src="js/cities.js"></script>
+    <!-- <script src="js/current.js"></script> -->
+  </body>
+</html>
+
+<!-- 
+1) ✅Display city after submit
+2) Display fix time 0 infront
+3) Display 
+ ✅ temperature, 
+✅   weather description, 
+✅  humidity, 
+✅wind after submit
+
+4) Current location - 
+city, 
+time, 
+temperature, 
+description, 
+humidity, 
+wind
+
+ -->
