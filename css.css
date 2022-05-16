@@ -16,14 +16,14 @@ button {
 .container {
   background-color: rgba(178, 127, 255, 0.44);
   display: block;
-  width: 60%;
-  height: 530px;
+  width: 70%;
+  height: 550px;
   margin: 110px auto;
   border-radius: 10px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 .container-inside {
-  padding: 40px 60px 40px 50px;
+  padding: 50px 80px;
 }
 
 .flex-main {
@@ -37,7 +37,7 @@ button {
 }
 
 #weather-description {
-  margin: 10px 0;
+  margin: 0 0 10px 0;
 }
 
 input,
@@ -106,14 +106,21 @@ a:hover {
 }
 
 .flex-forecast {
-  margin-top: 45px;
+  margin-top: 65px;
   display: flex;
   justify-content: space-between;
 }
 
 .forecast-element {
   width: 122px;
-  height: 130px;
-  border: 3px solid;
+  height: 160px;
   background-color: white;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+#small-weather-icon {
+  width: 80%;
 }
