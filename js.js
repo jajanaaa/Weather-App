@@ -53,6 +53,8 @@ function showCityTemperature(response) {
   getForecast(response.data.coord);
 }
 
+let city = null;
+
 function showCity(event) {
   event.preventDefault();
   city = input.value;
@@ -85,6 +87,7 @@ function showTemperature(response) {
   cityHumidity.innerHTML = `Humidity: ${humidity}%`;
   cityWind.innerHTML = `Wind: ${wind} km/h`;
   weatherIcon.src = `http://openweathermap.org/img/wn/${weather}@2x.png`;
+  getForecast(response.data.coord);
 }
 
 let latitude = null;
@@ -114,40 +117,75 @@ linkC = document.querySelector("#link-c");
 linkF = document.querySelector("#link-f");
 
 let temperatureC = null;
+let = smallTemperatureCelsius1Min = null;
+let = smallTemperatureCelsius1Max = null;
+//
+let = smallTemperatureCelsius2Min = null;
+let = smallTemperatureCelsius2Max = null;
+//
+let = smallTemperatureCelsius3Min = null;
+let = smallTemperatureCelsius3Max = null;
+//
+let = smallTemperatureCelsius4Min = null;
+let = smallTemperatureCelsius4Max = null;
+//
+let = smallTemperatureCelsius5Min = null;
+let = smallTemperatureCelsius5Max = null;
+
+console.log(city);
 
 function showF(event) {
-  // multiply by 1.8 (or 9/5) and add 32.
   event.preventDefault();
+  // multiply by 1.8 (or 9/5) and add 32.
+  tempF = Math.round(temperatureC * 1.8 + 32);
+  //
+  smallTemperatureF1Min = Math.round(smallTemperatureCelsius1Min * 1.8 + 32);
+  smallTemperatureF1Max = Math.round(smallTemperatureCelsius1Max * 1.8 + 32);
+  //
+  smallTemperatureF2Max = Math.round(smallTemperatureCelsius2Min * 1.8 + 32);
+  smallTemperatureF2Min = Math.round(smallTemperatureCelsius2Max * 1.8 + 32);
+  //
+  smallTemperatureF3Min = Math.round(smallTemperatureCelsius3Min * 1.8 + 32);
+  smallTemperatureF3Max = Math.round(smallTemperatureCelsius3Max * 1.8 + 32);
+  //
+  smallTemperatureF4Min = Math.round(smallTemperatureCelsius4Min * 1.8 + 32);
+  smallTemperatureF4Max = Math.round(smallTemperatureCelsius4Max * 1.8 + 32);
+  //
+  smallTemperatureF5Min = Math.round(smallTemperatureCelsius5Min * 1.8 + 32);
+  smallTemperatureF5Max = Math.round(smallTemperatureCelsius5Max * 1.8 + 32);
+
+  temperatureElement.innerHTML = tempF;
+
   linkC.classList.remove("inactive");
   linkF.classList.add("inactive");
-  tempF = Math.round(temperatureC * 1.8 + 32);
-  temperatureElement.innerHTML = `${tempF}`;
+  //
+  //
+  //
+  forecastTemperature1.innerHTML = `${smallTemperatureF1Min}° / ${smallTemperatureF1Max}°`;
+  forecastTemperature2.innerHTML = `${smallTemperatureF2Min}° / ${smallTemperatureF2Max}°`;
+  forecastTemperature3.innerHTML = `${smallTemperatureF3Min}° / ${smallTemperatureF3Max}°`;
+  forecastTemperature4.innerHTML = `${smallTemperatureF4Min}° / ${smallTemperatureF4Max}°`;
+  forecastTemperature5.innerHTML = `${smallTemperatureF5Min}° / ${smallTemperatureF5Max}°`;
 }
+
+linkF.addEventListener("click", showF);
 
 function showC(event) {
   event.preventDefault();
   linkC.classList.add("inactive");
   linkF.classList.remove("inactive");
   temperatureElement.innerHTML = temperatureC;
+  //
+  forecastTemperature1.innerHTML = `${smallTemperatureCelsius1Min}° / ${smallTemperatureCelsius1Max}°`;
+  forecastTemperature2.innerHTML = `${smallTemperatureCelsius2Min}° / ${smallTemperatureCelsius2Max}°`;
+  forecastTemperature3.innerHTML = `${smallTemperatureCelsius3Min}° / ${smallTemperatureCelsius3Max}°`;
+  forecastTemperature4.innerHTML = `${smallTemperatureCelsius4Min}° / ${smallTemperatureCelsius4Max}°`;
+  forecastTemperature5.innerHTML = `${smallTemperatureCelsius5Min}° / ${smallTemperatureCelsius5Max}°`;
 }
 
-linkF.addEventListener("click", showF);
 linkC.addEventListener("click", showC);
 
 // Forecast
-
-//function showForecastCity(event) {
-//  event.preventDefault();
-//  city = input.value;
-//  latitude = coords.latitude;
-//  longitude = coords.longitude;
-//  let units = "metric";
-//  let apiKey = "0db8ad6210652fd3a85cc58f74987b5a";
-//  let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
-// console.log(apiUrl);
-//}
-
-//form.addEventListener("submit", showForecastCity);
 
 forecastDays = [
   "Sun",
@@ -174,11 +212,11 @@ weekDay5 = document.querySelector("#week-day5");
 
 function changeDays() {
   weekDay = [
+    `${forecastDays[day]}`,
     `${forecastDays[day + 1]}`,
     `${forecastDays[day + 2]}`,
     `${forecastDays[day + 3]}`,
     `${forecastDays[day + 4]}`,
-    `${forecastDays[day + 5]}`,
   ];
 
   weekDay1.innerHTML = weekDay[0];
@@ -191,21 +229,70 @@ function changeDays() {
 
 changeDays();
 
+forecastTemperature1 = document.querySelector("#forecast-temperature1");
+forecastTemperature2 = document.querySelector("#forecast-temperature2");
+forecastTemperature3 = document.querySelector("#forecast-temperature3");
+forecastTemperature4 = document.querySelector("#forecast-temperature4");
+forecastTemperature5 = document.querySelector("#forecast-temperature5");
+//
+smallWeatherIcon1 = document.querySelector("#small-weather-icon1");
+smallWeatherIcon2 = document.querySelector("#small-weather-icon2");
+smallWeatherIcon3 = document.querySelector("#small-weather-icon3");
+smallWeatherIcon4 = document.querySelector("#small-weather-icon4");
+smallWeatherIcon5 = document.querySelector("#small-weather-icon5");
+//
+let = smallTemperatureCelsius1Min = null;
+let = smallTemperatureCelsius1Max = null;
+//
+let = smallTemperatureCelsius2Min = null;
+let = smallTemperatureCelsius2Max = null;
+//
+let = smallTemperatureCelsius3Min = null;
+let = smallTemperatureCelsius3Max = null;
+//
+let = smallTemperatureCelsius4Min = null;
+let = smallTemperatureCelsius4Max = null;
+//
+let = smallTemperatureCelsius5Min = null;
+let = smallTemperatureCelsius5Max = null;
+
+//console.log(smallTemperatureCelsius5Max);
+//
 function showForecast(response) {
   console.log(response.data);
-  console.log(response.data.list[0].main.temp_min);
-  console.log(response.data.list[0].main.temp_max);
-  //days[day]
-  console.log(`response.data.list${days[day + 1]}.main.temp_max`);
-  weekDay = [
-    `${days[day + 1]}`,
-    `${days[day + 2]}`,
-    `${days[day + 3]}`,
-    `${days[day + 4]}`,
-    `${days[day + 5]}`,
-  ];
-  console.log(weekDay);
-  weekDay1.innerHTML = days[day + 1];
+  console.log(response.data.daily[0].temp.min);
+  console.log(response.data.daily[0].weather[0].icon);
+  //
+  smallTemperatureCelsius1Min = Math.round(response.data.daily[0].temp.min);
+  smallTemperatureCelsius1Max = Math.round(response.data.daily[0].temp.max);
+  //
+  smallTemperatureCelsius2Min = Math.round(response.data.daily[1].temp.min);
+  smallTemperatureCelsius2Max = Math.round(response.data.daily[1].temp.max);
+  //
+  smallTemperatureCelsius3Min = Math.round(response.data.daily[2].temp.min);
+  smallTemperatureCelsius3Max = Math.round(response.data.daily[2].temp.max);
+  //
+  smallTemperatureCelsius4Min = Math.round(response.data.daily[3].temp.min);
+  smallTemperatureCelsius4Max = Math.round(response.data.daily[3].temp.max);
+  //
+  smallTemperatureCelsius5Min = Math.round(response.data.daily[4].temp.min);
+  smallTemperatureCelsius5Max = Math.round(response.data.daily[4].temp.max);
+
+  forecastTemperature1.innerHTML = `${smallTemperatureCelsius1Min}° / ${smallTemperatureCelsius1Max}°`;
+
+  forecastTemperature2.innerHTML = `${smallTemperatureCelsius2Min}° / ${smallTemperatureCelsius2Max}°`;
+
+  forecastTemperature3.innerHTML = `${smallTemperatureCelsius3Min}° / ${smallTemperatureCelsius3Max}°`;
+
+  forecastTemperature4.innerHTML = `${smallTemperatureCelsius4Min}° / ${smallTemperatureCelsius4Max}°`;
+
+  forecastTemperature5.innerHTML = `${smallTemperatureCelsius5Min}° / ${smallTemperatureCelsius5Max}°`;
+  //
+  smallWeatherIcon1.src = `http://openweathermap.org/img/wn/${response.data.daily[0].weather[0].icon}@2x.png`;
+  smallWeatherIcon2.src = `http://openweathermap.org/img/wn/${response.data.daily[1].weather[0].icon}@2x.png`;
+  smallWeatherIcon3.src = `http://openweathermap.org/img/wn/${response.data.daily[2].weather[0].icon}@2x.png`;
+  smallWeatherIcon4.src = `http://openweathermap.org/img/wn/${response.data.daily[3].weather[0].icon}@2x.png`;
+  smallWeatherIcon5.src = `http://openweathermap.org/img/wn/${response.data.daily[4].weather[0].icon}@2x.png`;
 }
 
 function getForecast(coordinates) {
@@ -214,7 +301,8 @@ function getForecast(coordinates) {
   longitude = coordinates.lon;
   let units = "metric";
   let apiKey = "0db8ad6210652fd3a85cc58f74987b5a";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
+
   console.log(apiUrl);
   axios.get(apiUrl).then(showForecast);
 }
